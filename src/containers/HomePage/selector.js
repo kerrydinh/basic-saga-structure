@@ -1,0 +1,1 @@
+export const getExampleData = store => store.exampleData;
