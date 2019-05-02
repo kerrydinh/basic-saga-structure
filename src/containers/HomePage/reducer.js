@@ -14,7 +14,6 @@ export default function(state = initialState, action) {
         }
 
         case HOME_ACTION_TYPE.LOAD_DATA_SUCCESSFULLY: {
-            console.log(action);
             return {
                 ...state,
                 exampleData: action.data

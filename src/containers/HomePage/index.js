@@ -12,11 +12,10 @@ class HomePage extends Component {
     render() {
         return (
             <div>
-                <H1>Testing</H1>
-                <Button text="Click Here" ></Button>
-                <Button text="Click Here" ></Button>
-                <PrimaryButton onClick={this.props.updateData} text="Go Go Go"></PrimaryButton>
-                <SecondaryButton text="Go Go Go"></SecondaryButton>
+                <H1>Home Page</H1>
+                <Button text="Normal Button" ></Button>
+                <PrimaryButton onClick={this.props.updateData} text="Primary Button"></PrimaryButton>
+                <SecondaryButton text="Secondary Button"></SecondaryButton>
             </div>
         );
     }

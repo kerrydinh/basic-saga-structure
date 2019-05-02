@@ -8,7 +8,6 @@ const StyledPrimaryButton = styled(DefaultButton)`
 `;
 
 function PrimaryButton(props) {
-    console.log(props);
     return (
         <StyledPrimaryButton onClick={props.onClick}>
             {props.text}

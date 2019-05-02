@@ -5,7 +5,6 @@ export const HOME_ACTION_TYPE = {
 }
 
 export function updateData(data) {
-    console.log('action run');
     return {
         type: HOME_ACTION_TYPE.LOAD_DATA,
         payload: {
@@ -15,7 +14,6 @@ export function updateData(data) {
   }
   
 export function updateDataSuccessfully(data) {
-    console.log('action run');
     return {
         type: HOME_ACTION_TYPE.LOAD_DATA_SUCCESSFULLY,
         payload: {
