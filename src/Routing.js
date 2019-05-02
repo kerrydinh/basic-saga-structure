@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Home from './containers/HomePage';
+import Form from './containers/FormTest';
 import { BrowserRouter, Route, Link, Switch, Redirect } from "react-router-dom";
 
 class Routing extends Component {
@@ -8,13 +9,14 @@ class Routing extends Component {
             <BrowserRouter>
                 <div style={{ border: "1px solid #ccc"}}>
                     <Link className="nav-link" style={{ marginLeft: "20px" }} to="/">Home</Link>
-                    <Link className="nav-link" style={{ marginLeft: "20px" }} to="/product">Product</Link>
+                    <Link className="nav-link" style={{ marginLeft: "20px" }} to="/form">Form</Link>
                     <Link className="nav-link" style={{ marginLeft: "20px" }} to="/user">User</Link>
                 </div>
 
 
                 <Switch>
                     <Route exact path="/" component={Home} />
+                    <Route exact path="/form" component={Form} />
                     <Route exact path="*" render={() => (<Redirect to="/" />)} />
                 </Switch>
             </BrowserRouter>
