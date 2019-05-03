@@ -1,26 +1,27 @@
-import { HOME_ACTION_TYPE } from './action';
+import { HOME_ACTION_TYPE } from "./action";
 
 const initialState = {
-    exampleData: [],
-}
+  exampleData: []
+};
 
 export default function(state = initialState, action) {
-    switch(action.type) {
-        case HOME_ACTION_TYPE.LOAD_DATA: {
-            return {
-                ...state,
-                exampleData: action.payload
-            };
-        }
-
-        case HOME_ACTION_TYPE.LOAD_DATA_SUCCESSFULLY: {
-            return {
-                ...state,
-                exampleData: action.data
-            };
-        }
-
-        default:
-            return state;
+  switch (action.type) {
+    case HOME_ACTION_TYPE.LOAD_DATA: {
+      return {
+        ...state,
+        loading: true
+      };
     }
+
+    case HOME_ACTION_TYPE.LOAD_DATA_SUCCESSFULLY: {
+      return {
+        ...state,
+        exampleData: action.data[0],
+        loading: false
+      };
+    }
+
+    default:
+      return state;
+  }
 }

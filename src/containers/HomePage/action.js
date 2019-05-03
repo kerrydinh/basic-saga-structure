@@ -4,24 +4,12 @@ export const HOME_ACTION_TYPE = {
     LOAD_DATA_FAILED: "LOAD_DATA_FAILED"
 }
 
-export function updateData(data) {
+export function loadData(data) {
     return {
-        type: HOME_ACTION_TYPE.LOAD_DATA,
-        payload: {
-            data
-        }
+        type: HOME_ACTION_TYPE.LOAD_DATA        
     };
   }
   
-export function updateDataSuccessfully(data) {
-    return {
-        type: HOME_ACTION_TYPE.LOAD_DATA_SUCCESSFULLY,
-        payload: {
-            data
-        }
-    };
-}
-
 /*export const loadDataAction = data => ({
     type: HOME_ACTION_TYPE.LOAD_DATA,
     payload: {

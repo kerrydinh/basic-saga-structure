@@ -1,39 +1,49 @@
-import React, { PureComponent } from 'react';
-import H1 from '../../components/H1';
-import { Button, PrimaryButton, SecondaryButton} from '../../components/Button';
-import { HOME_ACTION_TYPE } from './action';
-import { updateData } from './action';
-import { getExampleData } from './selector';
-import { connect } from 'react-redux';
+import React, { PureComponent } from "react";
+import H1 from "../../components/H1";
+import {
+  Button,
+  PrimaryButton,
+  SecondaryButton
+} from "../../components/Button";
+import { loadData } from "./action";
+import { getExampleData } from "./selector";
+import { connect } from "react-redux";
 
 class HomePage extends PureComponent {
-    state = {}
+  state = {};
 
-    render() {
-        return (
-            <div>
-                <H1>Home Page</H1>
-                <Button text="Normal Button" ></Button>
-                <PrimaryButton onClick={this.props.updateData} text="Primary Button"></PrimaryButton>
-                <SecondaryButton text="Secondary Button"></SecondaryButton>
-            </div>
-        );
-    }
+  render() {
+    return (
+      <>
+        <div>
+          <H1>Home Page</H1>
+          <Button text="Normal Button" />
+          <PrimaryButton
+            onClick={this.props.loadData}
+            text="Primary Button"
+          />
+          <SecondaryButton text="Secondary Button" />
+        </div>
+        {this.props.exampleData.description}
+       
+      </>
+    );
+  }
 }
 
 const mapStatetoProps = state => {
-    const data = getExampleData(state);
-    return {
-        exampleData: data
-    };
-}
+  const data = getExampleData(state);
+  return {
+    exampleData: data
+  };
+};
 
 function mapDispatchToProps(dispatch) {
-    return {
-        updateData: (data) => dispatch(updateData(data))
-    }
+  return {
+    loadData: data => dispatch(loadData(data))
+  };
 }
 export default connect(
-    mapStatetoProps,
-    mapDispatchToProps
+  mapStatetoProps,
+  mapDispatchToProps
 )(HomePage);

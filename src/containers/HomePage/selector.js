@@ -1,1 +1,1 @@
-export const getExampleData = store => store.exampleData;
+export const getExampleData = store => store.home.exampleData;
