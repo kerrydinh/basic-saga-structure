@@ -1,17 +1,22 @@
-import React from 'react';
-import './App.css';
-import Routing from './Routing';
-import InputForm from './containers/FormTest';
-import store from './store';
-import { Provider } from 'react-redux';
+import React, { Suspense } from "react";
+import "./App.css";
+import Routing from "./Routing";
+import store from "./store";
+import { Provider } from "react-redux";
+import Loader from "react-loader-spinner";
 
 function App() {
   return (
     <Provider store={store}>
-      <div className="App">
-        
-        <Routing></Routing>
-      </div>
+      <Suspense
+        fallback={
+          <Loader type="Ball-Triangle" color="#00BFFF" height="100" width="100" />
+        }
+      >
+        <div className="App">
+          <Routing />
+        </div>
+      </Suspense>
     </Provider>
   );
 }

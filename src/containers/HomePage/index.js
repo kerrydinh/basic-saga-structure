@@ -8,7 +8,7 @@ import {
 import { loadData } from "./action";
 import { getExampleData } from "./selector";
 import { connect } from "react-redux";
-
+import { Trans } from "react-i18next";
 class HomePage extends PureComponent {
   state = {};
 
@@ -18,14 +18,15 @@ class HomePage extends PureComponent {
         <div>
           <H1>Home Page</H1>
           <Button text="Normal Button" />
-          <PrimaryButton
-            onClick={this.props.loadData}
-            text="Primary Button"
-          />
+          <PrimaryButton onClick={this.props.loadData} text="Primary Button" />
           <SecondaryButton text="Secondary Button" />
         </div>
+        <Trans i18nKey="description.part1" />
+        <Trans i18nKey="description.part2" />
+        <Trans i18nKey="title1">
+          345634563456
+        </Trans>
         {this.props.exampleData.description}
-       
       </>
     );
   }
