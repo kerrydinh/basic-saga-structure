@@ -1,25 +1,24 @@
 import React from 'react';
 import './App.css';
+<<<<<<< HEAD
 import Routing from './Routing';
+=======
 import InputForm from './containers/FormTest';
+>>>>>>> a820df0765f696fcfb2cdc2cf587817b8e3ca9a3
 import store from './store';
 import { Provider } from 'react-redux';
-
-export const Context = React.createContext();
-
-const stateValue = {
-  text: "This is spartar"
-};
 
 function App() {
   return (
     <Provider store={store}>
-      <Context.Provider value={stateValue}>
-        <div className="App">
-          
+      <div className="App">
+<<<<<<< HEAD
           <Routing></Routing>
-        </div>
-      </Context.Provider>
+=======
+        
+        <InputForm></InputForm>
+>>>>>>> a820df0765f696fcfb2cdc2cf587817b8e3ca9a3
+      </div>
     </Provider>
   );
 }
