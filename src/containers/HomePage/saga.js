@@ -1,11 +1,19 @@
 import { put, takeLatest } from "redux-saga/effects";
 import { HOME_ACTION_TYPE } from "./action";
+import { showLoading, hideLoading } from 'react-redux-loading-bar'
 
 export function* loadData() {
-  const json = yield fetch(
-    "https://newsapi.org/v1/articles?source=cnn&apiKey=c39a26d9c12f48dba2a5c00e35684ecc"
-  ).then(response => response.json());
-  yield put({ type: HOME_ACTION_TYPE.LOAD_DATA_SUCCESSFULLY, data: json.articles });
+  try {
+    yield put(showLoading())
+    const jsonData = yield fetch(
+      "https://jsonplaceholder.typicode.com/posts"
+    ).then(response => response.json());
+    console.log(jsonData);
+    yield put({ type: HOME_ACTION_TYPE.LOAD_DATA_SUCCESSFULLY, data: jsonData });
+  } finally {
+    yield put(hideLoading())
+  }
+ 
 }
 
 export default function* homeSaga() {
