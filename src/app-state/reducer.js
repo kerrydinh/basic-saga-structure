@@ -1,4 +1,4 @@
-import homeReducer from './containers/HomePage/reducer';
+import homeReducer from '../containers/HomePage/state/reducer';
 import { combineReducers } from 'redux';
 import { loadingBarReducer } from "react-redux-loading-bar";
 

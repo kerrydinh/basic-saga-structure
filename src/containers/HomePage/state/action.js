@@ -4,7 +4,7 @@ export const HOME_ACTION_TYPE = {
     LOAD_DATA_FAILED: "LOAD_DATA_FAILED"
 }
 
-export function loadData(data) {
+export function loadData() {
     return {
         type: HOME_ACTION_TYPE.LOAD_DATA        
     };

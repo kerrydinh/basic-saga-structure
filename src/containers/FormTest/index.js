@@ -42,7 +42,7 @@ class InputForm extends Component {
     const classes = this.props;
     const values = { name: "", email: "", confirmPassword: "", password: "" };
     return (
-      <React.Fragment>
+      <>
         <div className={classes.container}>
           <Paper elevation={1} className={classes.paper}>
             <h1>Form</h1>
@@ -53,7 +53,7 @@ class InputForm extends Component {
             />
           </Paper>
         </div>
-      </React.Fragment>
+      </>
     );
   }
 }

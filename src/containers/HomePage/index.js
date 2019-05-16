@@ -5,8 +5,8 @@ import {
   PrimaryButton,
   SecondaryButton
 } from "../../components/Button";
-import { loadData } from "./action";
-import { getExampleData } from "./selector";
+import { loadData } from "./state/action";
+import { getExampleData } from "./state/selector";
 import { connect } from "react-redux";
 import { Trans } from "react-i18next";
 import { toast } from 'react-toastify';
