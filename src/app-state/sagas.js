@@ -1,5 +1,5 @@
 import { fork } from 'redux-saga/effects';
-import  homeSaga from './containers/HomePage/saga';
+import  homeSaga from '../containers/HomePage/state/saga';
 import { all } from 'redux-saga/effects';
 
 export default function* rootSaga() {
