@@ -29,7 +29,7 @@ class SideBar extends Component {
             const currentItemRef = React.createRef();
             return (
               <li key={index.toString()} className="nav-item dropdown">
-                <Link to={item.router} className={"nav-link" + (!isContainer ? " nav-link--child" : "")} href="" onClick={(e) => {
+                <Link to={item.router ? item.router : ""} className={"nav-link" + (!isContainer ? " nav-link--child" : "")} href="" onClick={(e) => {
                   if (currentItemRef.current) {
                     e.preventDefault();
                     const displayValue = currentItemRef.current.style.display == 'none' ? 'block' : 'none';
