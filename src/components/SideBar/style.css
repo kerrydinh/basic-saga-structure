@@ -1,0 +1,45 @@
+.sidebar {
+    width: 250px;
+    float: left;
+    min-height: calc(100vh - 56px);
+    background-color: #343a40;
+}
+
+.nav {
+    list-style: none;
+    text-align: left;
+    padding-left: 0;
+    background-color: #343a40;
+}
+
+
+.nav-item {
+    list-style-type: none;
+}
+
+.nav-item.active a {
+    color: #fff;
+    font-weight: bold;
+}
+
+.nav-link {
+    text-decoration: unset;
+    background: transparent;
+    padding: 10px 0px 10px 20px;
+    display: block;
+    text-align: left;
+}
+
+.navbar-nav .nav-link {
+    padding-left: 10px;
+    color: rgba(255,255,255,.75);
+}
+
+.nav-link.nav-link--child {
+    padding-left: 20px;
+}
+
+.navbar-nav a:hover, .nav-link:hover {
+    background: #ccc;
+    color: #343a40 !important;
+}
