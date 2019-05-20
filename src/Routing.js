@@ -6,6 +6,8 @@ import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
 import SideBar from './components/SideBar';
 import Navigation from './components/Navigation';
+import Wrapper from './components/Wrapper';
+import Container from './components/Container';
 
 import { faHome } from "@fortawesome/free-solid-svg-icons";
 import { faBell } from "@fortawesome/free-solid-svg-icons";
@@ -85,21 +87,19 @@ const Routing = () => {
 
   return (
     <BrowserRouter>
-      <Navigation></Navigation>
-
-      <div id="wrapper">
+      <Navigation>
+      </Navigation>
+      <Wrapper>
         <SideBar items={items}></SideBar>
-        <div id="content-wrapper">
+        <Container>
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/form" component={Form} />
             <Route exact path="/cleaning-object" component={CleaningObject} />
             <Route exact path="*" render={() => <Redirect to="/" />} />
           </Switch>
-          </div>
-
-      </div>
-
+        </Container>
+      </Wrapper>
     </BrowserRouter>
   );
 };
