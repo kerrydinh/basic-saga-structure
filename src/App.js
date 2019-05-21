@@ -8,11 +8,13 @@ import { client } from "./apollo";
 import { ApolloProvider } from "react-apollo";
 import LoadingBar from "react-redux-loading-bar";
 import { ToastContainer } from 'react-toastify';
+import AuthService, { AuthContext } from './utils/auth';
 
 function App() {
   return (
     <ApolloProvider client={client}>
       <Provider store={store}>
+      <AuthContext.Provider value={new AuthService()}>
       <LoadingBar style={{ backgroundColor: 'blue', height: '5px' }} />
         <Suspense
           fallback={
@@ -29,6 +31,7 @@ function App() {
           </div>
         </Suspense>
       <ToastContainer />
+      </AuthContext.Provider>
       </Provider>
     </ApolloProvider>
   );

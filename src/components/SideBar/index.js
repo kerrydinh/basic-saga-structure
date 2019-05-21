@@ -32,7 +32,7 @@ class SideBar extends Component {
                 <Link to={item.router ? item.router : ""} className={"nav-link" + (!isContainer ? " nav-link--child" : "")} href="" onClick={(e) => {
                   if (currentItemRef.current) {
                     e.preventDefault();
-                    const displayValue = currentItemRef.current.style.display == 'none' ? 'block' : 'none';
+                    const displayValue = currentItemRef.current.style.display === 'none' ? 'block' : 'none';
                     currentItemRef.current.style.display = displayValue;
                   } else {
                     history.push(item.router);
