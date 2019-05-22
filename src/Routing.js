@@ -1,10 +1,13 @@
 import React, { Component, useEffect  } from "react";
-import Home from "./containers/HomePage";
-import Form from "./containers/FormTest";
-import CleaningObject from "./containers/CleaningObject";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
 import { withAuthentication } from './utils/auth';
+import { connect } from "react-redux";
+
+/*Page*/
+import Home from "./containers/HomePage";
+import Form from "./containers/FormTest";
+import CleaningObject from "./containers/CleaningObject";
 import CallbackPage from './containers/Callback';
 
 /* UI Components */
@@ -20,6 +23,8 @@ import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { faCubes } from "@fortawesome/free-solid-svg-icons";
 import { faServer } from "@fortawesome/free-solid-svg-icons";
 import { faCogs } from "@fortawesome/free-solid-svg-icons";
+
+import { getUserInfo } from "./containers/Callback/state/selector";
 
 const { t, i18n } = useTranslation();
 
@@ -87,7 +92,6 @@ const items = [
   }
 ];
 class Routing extends Component {
-
   constructor(props) {
     super(props);
   }
@@ -96,12 +100,13 @@ class Routing extends Component {
     return (
       <BrowserRouter>
           <Navigation
-            onSignIn={ () => this.props.auth.onSignIn() }>
+            onSignIn={ () => this.props.auth.onSignIn() }
+            userInfo={ this.props.userInfo }
+          >
           </Navigation>
           <Wrapper>
             <SideBar items={items}></SideBar>
             <Container>
-              <span>{this.props.auth.text}</span>
               <Switch>
                 <Route exact path="/" component={Home} />
                 <Route exact path="/form" component={Form} />
@@ -116,4 +121,14 @@ class Routing extends Component {
   }
 }
  
-export default withAuthentication(Routing);
+const mapStatetoProps = state => {
+  const userInfo = getUserInfo(state);
+  return {
+    userInfo: userInfo
+  };
+};
+
+export default connect(
+  mapStatetoProps,
+  null
+)(withAuthentication(Routing));

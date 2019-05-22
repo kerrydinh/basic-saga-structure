@@ -7,18 +7,13 @@ import Nav from 'react-bootstrap/Nav';
 import NavigationTab from '../NavigationTab';
 import styled from 'styled-components';
 import { Link } from "react-router-dom";
-import cloneDeep from 'lodash/sumBy';
+
 const Span = styled.span`
     padding-left: 10px;
     text-transform: uppercase;
 `;
 
 function Navigation(props) {
-    useEffect(() => {
-        console.log(props);
-
-    });
-
     return (
         <div>
             <Navbar collapseOnSelect expand="lg" bg="light " variant="light ">
@@ -27,10 +22,15 @@ function Navigation(props) {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="mr-auto">
-                    {props.text}
                 </Nav>
                 <Nav>
-                    <Button variant="outline-primary" onClick={() => props.onSignIn()}>Sign-in</Button>
+                    {props.userInfo.name && (
+                        <div>
+                            <span>{props.userInfo.name}</span>
+                            <Button variant="outline-primary" onClick={() => props.onSignOut()}>Sign-out</Button>
+                        </div>)
+                    }
+                    {!props.userInfo.name && (<Button variant="outline-primary" onClick={() => props.onSignIn()}>Sign-in</Button>)}
                 </Nav>
             </Navbar.Collapse>
             </Navbar>

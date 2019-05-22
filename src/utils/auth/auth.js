@@ -5,15 +5,16 @@ import authConfig from './auth-config';
 class AuthService {
     constructor() {
         this.userManager = new UserManager(authConfig);
-        this.isAuthenticated = false;
-        this.text = 'no update';
     }
 
-    setAuthentication(user) {
-        this.isAuthenticated = true;
-        this.text = 'updated';
-        localStorage.setItem('auth', user);
+    setCurrentAuth(user) {
+        localStorage.setItem('auth', JSON.stringify(user));
     }
+    
+    getCurrentAuth(user) {
+        localStorage.getItem('auth', JSON.stringify(user));
+    }
+
     onSignIn() {
         this.userManager.signinRedirect();
     }
