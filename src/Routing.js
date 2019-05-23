@@ -25,6 +25,7 @@ import { faServer } from "@fortawesome/free-solid-svg-icons";
 import { faCogs } from "@fortawesome/free-solid-svg-icons";
 
 import { getUserInfo } from "./containers/Callback/state/selector";
+import { removeAuthUser } from "./containers/Callback/state/action";
 
 const { t, i18n } = useTranslation();
 
@@ -101,6 +102,10 @@ class Routing extends Component {
       <BrowserRouter>
           <Navigation
             onSignIn={ () => this.props.auth.onSignIn() }
+            onSignOut={ () => {
+              this.props.auth.onSignOut();
+              this.props.removeAuthUser();
+            }}
             userInfo={ this.props.userInfo }
           >
           </Navigation>
@@ -120,7 +125,13 @@ class Routing extends Component {
     );
   }
 }
- 
+
+const mapDispatchToProps = dispatch => {
+  return {
+    removeAuthUser: user => dispatch(removeAuthUser(user))
+  };
+}
+
 const mapStatetoProps = state => {
   const userInfo = getUserInfo(state);
   return {
@@ -130,5 +141,5 @@ const mapStatetoProps = state => {
 
 export default connect(
   mapStatetoProps,
-  null
+  mapDispatchToProps
 )(withAuthentication(Routing));
