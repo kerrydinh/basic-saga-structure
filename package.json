@@ -14,15 +14,19 @@
     "apollo-link-error": "^1.1.10",
     "apollo-link-http": "^1.5.14",
     "formik": "^1.5.4",
+    "history": "^4.9.0",
+    "graphql": "^14.3.0",
+    "graphql-tag": "^2.10.1",
     "graphql": "^14.3.0",
     "graphql-tag": "^2.10.1",
     "history": "^4.9.0",
     "i18next": "^15.1.0",
     "i18next-browser-languagedetector": "^3.0.1",
     "i18next-locize-backend": "^1.9.0",
-    "lodash": "^4.17.11",
+    "i18next-xhr-backend": "^2.0.1",
     "oidc-client": "^1.7.1",
     "react": "^16.8.6",
+    "react-bootstrap": "^1.0.0-beta.8",
     "react-apollo": "^2.5.5",
     "react-bootstrap": "^1.0.0-beta.8",
     "react-dom": "^16.8.6",
@@ -61,5 +65,15 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "babel-eslint": "^10.0.1",
+    "eslint-config-react-app": "^4.0.1",
+    "eslint-plugin-flowtype": "^2.50.3",
+    "eslint-plugin-import": "^2.17.2",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-react": "^7.13.0",
+    "eslint-plugin-react-hooks": "^1.5.0"
   }
 }

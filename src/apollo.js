@@ -6,7 +6,7 @@ import { ApolloLink } from 'apollo-link';
 const cache = new InMemoryCache();
 
 const httpLink = new HttpLink({
-  uri: "http://localhost:4000/graphql"
+  uri: "https://countries.trevorblades.com/graphql"
 });
 
 const errorLink = onError(({ graphQLErrors, networkError }) => {

@@ -8,12 +8,13 @@ import {
 import { loadData } from "./state/action";
 import { getExampleData } from "./state/selector";
 import { connect } from "react-redux";
-import { Trans } from "react-i18next";
+import { Trans, useTranslation } from "react-i18next";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 class HomePage extends PureComponent {
   state = {};
+  
   notify = () => {
     console.log('123');
     toast.success("Wow so easy !", {
